@@ -42,6 +42,7 @@ public class SRTFScheduler extends Scheduler {
                     isCompleted[currentProcess.id - 1] = true;
                     completedProcesses++;
                 }
+                currentTime++; // Add 1 for context switch after each process execution
             } else {
                 currentTime++;
             }

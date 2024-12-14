@@ -29,7 +29,7 @@ public class PriorityScheduler extends Scheduler {
 
             if (currentProcess != null) {
                 executionOrder.append(currentProcess.id).append(",");
-                currentTime += currentProcess.burstTime;
+                currentTime += currentProcess.burstTime + 1; // Add 1 for context switch
 
                 currentProcess.completionTime = currentTime;
                 currentProcess.turnaroundTime = currentProcess.completionTime - currentProcess.arrivalTime;
@@ -47,4 +47,3 @@ public class PriorityScheduler extends Scheduler {
         }
     }
 }
-
