@@ -20,8 +20,8 @@ public class PriorityScheduler extends Scheduler {
             for (int i = 0; i < n; i++) {
                 if (!isCompleted[i] && processes[i].arrivalTime <= currentTime) {
                     if (currentProcess == null ||
-                            processes[i].priority < currentProcess.priority ||
-                            (processes[i].priority == currentProcess.priority && processes[i].arrivalTime < currentProcess.arrivalTime)) {
+                            processes[i].Priority < currentProcess.Priority ||
+                            (processes[i].Priority == currentProcess.Priority && processes[i].arrivalTime < currentProcess.arrivalTime)) {
                         currentProcess = processes[i];
                     }
                 }

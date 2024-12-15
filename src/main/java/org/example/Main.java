@@ -2,6 +2,8 @@ package org.example;
 
 import javax.swing.*;
 import java.awt.*;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class Main {
@@ -16,6 +18,7 @@ public class Main {
         Process[] priorityProcesses = new Process[n];
         Process[] sjfProcesses = new Process[n];
         Process[] srtfProcesses = new Process[n];
+        List<Process> fcaiprocesses = new ArrayList<>();
 
         for (int i = 0; i < n; i++) {
             System.out.println("Enter details for Process " + (i + 1) + ":");
@@ -33,6 +36,27 @@ public class Main {
             sjfProcesses[i] = new Process(i + 1, arrivalTime, burstTime, priority);
             srtfProcesses[i] = new Process(i + 1, arrivalTime, burstTime, priority);
         }
+
+        for(int i = 0; i < n; i++) {
+            System.out.print("Enter the name of process " + (i + 1) + ": ");
+            String processName = scanner.next();
+            System.out.print("Enter the arrival time of process " + (i + 1) + ": ");
+            int arrivalTime = scanner.nextInt();
+            System.out.print("Enter the burst time of process " + (i + 1) + ": ");
+            int burstTime = scanner.nextInt();
+            System.out.print("Enter the priority of process " + (i + 1) + ": ");
+            int priority = scanner.nextInt();
+            System.out.print("Enter the quantum of process " + (i + 1) + ": ");
+            int quantum = scanner.nextInt();
+
+            // Create a process and add it to the list
+            Process process = new Process(processName, burstTime, arrivalTime, priority);
+            process.setQuantum(quantum);
+            fcaiprocesses.add(process);
+        }
+        FCAI scheduler = new FCAI(fcaiprocesses);
+        System.out.println("Starting FCAI Scheduling...");
+        scheduler.logic();
 
         Scheduler priorityScheduler = new PriorityScheduler();
         Scheduler sjfScheduler = new SJFScheduler();
