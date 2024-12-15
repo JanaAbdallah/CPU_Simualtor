@@ -76,8 +76,8 @@ Where:
 
 
 ## Contributors
-Jana Abdullah
-Malak Sherif
-Raghad Ahmed
-Afnan AbdelKareem
-Afnan Sayed
+- [Jana Abdullah] - Shortest- Remaining Time First (SRTF) Scheduling
+- [Malak Sherif] - FCAI Scheduling
+- [Raghad Ahmed] - Shortest- Job First (SJF) Scheduling
+- [Afnan AbdelKareem] - Priority Scheduler
+- [Afnan Sayed] - FCAI Scheduling
