@@ -80,12 +80,24 @@ public class FCAI
                 {
                     // Print the final process statistics
                     System.out.println("\nFinal Process Statistics:");
+                    float totalWaiting=0, totalTurnaround=0;
                     for (Process process : statistics)
                     {
-                        System.out.println("Process " + process.getName()
-                                + " | Waiting Time: " + process.getWaitingT()
-                                + " | Turnaround Time: " + process.getTurnaroundT());
+                        System.out.println
+                                ( "Process " + process.getName()
+                                        + " | Waiting Time: " + process.getWaitingT()
+                                        + " | Turnaround Time: " + process.getTurnaroundT()
+                                );
+                        totalWaiting+=process.getWaitingT();
+                        totalTurnaround+=process.getTurnaroundT();
                     }
+
+                    float avgWaiting, avgTurnaround;
+                    avgWaiting=  totalWaiting /statistics.size();
+                    avgTurnaround=  totalTurnaround /statistics.size();
+                    System.out.println
+                            ( "Average Waiting Time: " + avgWaiting
+                                    + " | Average Turnaround Time: " +avgTurnaround);
                     break;
                 }
 
@@ -154,6 +166,7 @@ public class FCAI
                             pOfLeastFactor = process;
                         }
                     }
+
                 }
                 ////////////////////////////////////////////////////////////////////
 
